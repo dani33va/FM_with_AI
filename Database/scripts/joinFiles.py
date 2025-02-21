@@ -14,4 +14,4 @@ combined_df = pd.concat(df, ignore_index=True)
 
 combined_df.to_parquet(filePath, index=False)
 
-combined_df.to_excel("1.xlsx", index=False)
+#combined_df.to_excel("1.xlsx", index=False)
