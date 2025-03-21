@@ -3,9 +3,9 @@ import pandas as pd
 import os
 
 
-input=(input('Select number of samples for the save: '))
-path= os.path.normpath(r'Database\files\2Export\data' + '\\' + input + 'save.parquet')
-output=os.path.normpath(r'Database\files\2Export\data' + '\\' + input + 'saveFinal.parquet')
+input=(input('Select samples: '))
+path= os.path.normpath('Database\\files\\'  + input +  'Export\\data\\' + input + 'save.parquet')
+output=os.path.normpath('Database\\files\\'+ input +'Export\\data\\'   + input + 'saveFinal.parquet')
 
 
 df=pd.read_parquet(path)

@@ -7,6 +7,7 @@ import seaborn as sns
 from sklearn.preprocessing import OneHotEncoder
 import os
 import numpy as np
+import time
 
 # Load data from Parquet file
 input = '2'  # Hardcoded for testing
@@ -62,8 +63,25 @@ y_pred = model.predict(X_test)
 
 # Evaluate the model
 accuracy = accuracy_score(y_test, y_pred)
-print(f'Model Accuracy: {accuracy:.2f}')
+print("Model original accuracy:", accuracy)
 
+
+#Trying different parameters and seing their impact
+'''
+Should try again after adding more cases. Did not see a clear difference from 50 onwards, will keep it as 100 until I expand the database
+n_Values=[50, 500, 5000]
+for value in n_Values:
+    start=time.time()
+    model= RandomForestClassifier(n_estimators=value, random_state=42)
+    model.fit(X_train, y_train)
+    y_pred = model.predict(X_test)
+    accuracy = accuracy_score(y_test, y_pred)
+    elapsed= time.time()- start
+    print("Model accuracy with", value,"as n:", accuracy, "in", elapsed)
+
+'''
+
+'''
 # 1. Confusion Matrix
 interval_labels = [f"{int(i)}-{int(i)+5}" for i in np.unique(y)]
 
@@ -81,7 +99,7 @@ plt.show()
 # 2. Classification Report
 print("Classification Report:")
 print(classification_report(y_test, y_pred))
-'''
+
 # 3. Feature Importance
 feature_importances = model.feature_importances_
 feature_importance_df = pd.DataFrame({
@@ -90,7 +108,7 @@ feature_importance_df = pd.DataFrame({
 }).sort_values(by='Importance', ascending=False)
 
 print("Top 10 Most Important Features:")
-print(feature_importance_df.head(10))
+print(feature_importance_df.head(30))
 
 # Plot feature importance
 plt.figure(figsize=(10, 7))
@@ -98,11 +116,15 @@ sns.barplot(x='Importance', y='Feature', data=feature_importance_df.head(10))
 plt.title('Top 10 Feature Importances')
 plt.show()
 '''
+
+
+
+'''
 # 4. Cross-Validation Scores
 cv_scores = cross_val_score(model, X_processed, y, cv=5, scoring='accuracy')
 print(f'Cross-Validation Accuracy: {cv_scores.mean():.2f} (± {cv_scores.std():.2f})')
 
-'''
+
 # 5. ROC Curve and AUC (for binary classification only)
 if len(y.unique()) == 2:  # Check if it's a binary classification problem
     y_pred_proba = model.predict_proba(X_test)[:, 1]
@@ -118,3 +140,4 @@ if len(y.unique()) == 2:  # Check if it's a binary classification problem
     plt.legend()
     plt.show()
 '''
+print(X_processed.shape)
