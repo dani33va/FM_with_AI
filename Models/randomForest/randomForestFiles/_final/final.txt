@@ -1,0 +1,71 @@
+Random forest using all optimizations and after running hyperparameter optimization.
+
+Best Parameters: {'bootstrap': False, 'max_depth': 23, 'max_features': 'log2', 'min_samples_leaf': 2, 'min_samples_split': 9, 'n_estimators': 532}
+Accuracy: 0.4368
+F1-Macro: 0.3599
+F1-Micro: 0.4368
+Classification Report:
+              precision    recall  f1-score   support
+
+       110.0       0.43      0.43      0.43        14
+       120.0       0.29      0.47      0.35        30
+       130.0       0.42      0.49      0.45       137
+       140.0       0.34      0.32      0.33       138
+       150.0       0.53      0.48      0.51       226
+       160.0       0.53      0.32      0.40        97
+       170.0       0.44      0.67      0.53        66
+       180.0       0.30      0.20      0.24        15
+       190.0       0.00      0.00      0.00         5
+
+    accuracy                           0.44       728
+   macro avg       0.36      0.37      0.36       728
+weighted avg       0.45      0.44      0.43       728
+
+Feature Importance:
+         Feature  Importance
+0             AP    0.090789
+3   minPotential    0.067741
+1             CA    0.052207
+4   maxPotential    0.050953
+12            HR    0.050048
+19            CR    0.048466
+9             WR    0.048416
+15          Wage    0.042608
+23        Min WD    0.041561
+2            Age    0.039610
+18       AT Apps    0.039379
+22           Amb    0.032847
+10           Bra    0.032810
+16          Dirt    0.032744
+13          Temp    0.032489
+7            Det    0.032244
+17        Inj Pr    0.032134
+8            Ldr    0.031775
+5          Imp M    0.030446
+24           Hea    0.030340
+14           Wor    0.030092
+21           Fir    0.028351
+11           Str    0.027707
+20          Prof    0.027626
+6            Sta    0.026616
+
+Cross validating scores
+accuracy: 0.44 (± 0.02)
+f1_micro: 0.44 (± 0.02)
+f1_macro: 0.41 (± 0.03)
+precision_macro: 0.47 (± 0.02)
+recall_macro: 0.40 (± 0.04)
+
+ROC AUC Scores:
+110-120: 0.9565
+120-130: 0.9006
+130-140: 0.7916
+140-150: 0.7403
+150-160: 0.7587
+160-170: 0.7926
+170-180: 0.9210
+180-190: 0.9576
+190-200: 0.9622
+
+Micro-average ROC AUC: 0.8842
+Macro-average ROC AUC: 0.8646

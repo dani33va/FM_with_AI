@@ -1,0 +1,135 @@
+
+model = RandomForestClassifier(n_estimators=100, random_state=42, class_weight='balanced')   
+
+Model original accuracy: 0.43543956043956045
+Model original F1_Macro: 0.2432
+
+Classification Report:
+              precision    recall  f1-score   support
+
+       110.0       0.67      0.14      0.24        14
+       120.0       0.33      0.03      0.06        30
+       130.0       0.39      0.53      0.45       137
+       140.0       0.35      0.14      0.20       138
+       150.0       0.47      0.77      0.58       226
+       160.0       0.40      0.10      0.16        97
+       170.0       0.44      0.58      0.50        66
+       180.0        nan      0.00      0.00        15
+       190.0        nan      0.00      0.00         5
+
+    accuracy                           0.44       728
+   macro avg       0.44      0.25      0.24       728
+weighted avg       0.42      0.44      0.38       728
+
+
+
+
+
+Feature Importance:
+                           Feature  Importance
+3                               AP    0.058717
+79                    minPotential    0.042787
+78                    maxPotential    0.042234
+0                               CA    0.025463
+8                               CR    0.023091
+10                              HR    0.022695
+9                               WR    0.020743
+1                             Wage    0.020630
+17                          Min WD    0.017579
+16                          Max WD    0.017423
+2                              Age    0.016968
+77                         AT Apps    0.016483
+18                          Av Rat    0.014941
+5                              Amb    0.014751
+51                             Det    0.014168
+70                          Inj Pr    0.014140
+59                             Bra    0.013671
+68                            Dirt    0.013338
+75                            Temp    0.013275
+71                             Loy    0.013262
+72                            Pres    0.013070
+23                             Tea    0.012936
+74                            Spor    0.012876
+7                          Consist    0.012836
+36                             Nat    0.012727
+6                             Cont    0.012632
+60                             Bal    0.012625
+73                            Prof    0.012316
+40                             Ldr    0.012310
+4                              Ada    0.012273
+20                             Vis    0.012164
+48                             Fin    0.012162
+63                             Agg    0.011844
+42                             Jum    0.011663
+24                             Tck    0.011637
+45                             Fre    0.011628
+30                             Pos    0.011550
+76                            Vers    0.011519
+53                             Cro    0.011372
+69                           Imp M    0.011362
+46                             Fla    0.011197
+19                             Wor    0.011163
+43                             Hea    0.011080
+52                             Dec    0.011043
+38                            L Th    0.011022
+32                             Pas    0.011002
+54                             Cor    0.010938
+26                             Sta    0.010669
+39                             Lon    0.010567
+25                             Str    0.010477
+37                             Mar    0.010409
+31                             Pen    0.010389
+50                             Dri    0.010381
+55                             Cnt    0.010328
+61                             Ant    0.010252
+62                             Agi    0.010250
+47                             Fir    0.010186
+56                             Cmp    0.010186
+35                             OtB    0.010038
+22                             Tec    0.009517
+65                             Acc    0.009505
+33                             Pac    0.008836
+66                        Yth Apps    0.008601
+44                             Han    0.006564
+49                             Ecc    0.006471
+29                             Pun    0.006438
+34                             1v1    0.006216
+27                             TRO    0.006193
+58                             Cmd    0.006180
+41                             Kic    0.006130
+21                             Thr    0.006024
+57                             Com    0.005955
+28                             Ref    0.005624
+64                             Aer    0.005575
+67                            Caps    0.004818
+14                     Min Fee Rls    0.004374
+15                 Opt Ext by Club    0.002522
+12    Min Fee Rls to Foreign Clubs    0.001906
+11                   Wage Contrib.    0.000986
+13  Min Fee Rls Clubs In Cont Comp    0.000125
+
+
+
+
+Cross validating scores
+accuracy: 0.44 (± 0.01)
+f1_micro: 0.44 (± 0.01)
+f1_macro: 0.23 (± 0.01)
+precision_macro: 0.41 (± 0.05)
+recall_macro: 0.25 (± 0.01)
+
+
+
+ROC AUC Scores:
+110-120: 0.9263
+120-130: 0.9052
+130-140: 0.7691
+140-150: 0.7266
+150-160: 0.7326
+160-170: 0.7345
+170-180: 0.9093
+180-190: 0.9501
+190-200: 0.9675
+
+Micro-average ROC AUC: 0.8730
+Macro-average ROC AUC: 0.8468

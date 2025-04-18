@@ -1,0 +1,44 @@
+Model original accuracy: 0.46703296703296704
+Model original F1_Macro: 0.3187
+Classification Report:
+              precision    recall  f1-score   support
+
+       110.0       0.75      0.21      0.33        14
+       120.0       0.31      0.17      0.22        30
+       130.0       0.44      0.53      0.48       137
+       140.0       0.39      0.25      0.31       138
+       150.0       0.50      0.73      0.59       226
+       160.0       0.56      0.23      0.32        97
+       170.0       0.46      0.56      0.50        66
+       180.0       0.33      0.07      0.11        15
+       190.0        nan      0.00      0.00         5
+
+    accuracy                           0.47       728
+   macro avg       0.47      0.31      0.32       728
+weighted avg       0.47      0.47      0.44       728
+
+
+Cross validating scores
+accuracy: 0.45 (± 0.00)
+f1_micro: 0.45 (± 0.00)
+f1_macro: 0.27 (± 0.01)
+precision_macro: 0.36 (± 0.07)
+recall_macro: 0.27 (± 0.00)
+
+ROC AUC Scores:
+110-120: 0.9706
+120-130: 0.9004
+130-140: 0.7908
+140-150: 0.7261
+150-160: 0.7514
+160-170: 0.7680
+170-180: 0.9159
+180-190: 0.9457
+190-200: 0.9564
+
+Micro-average ROC AUC: 0.8824
+Macro-average ROC AUC: 0.8584
+
+
+As mentioned in the code, paying atention to the f1_macro as the most important statistical we see clear improvements in both testing and cross validating.
+That means it is not only better for the testing sample but also it will adapt better.
