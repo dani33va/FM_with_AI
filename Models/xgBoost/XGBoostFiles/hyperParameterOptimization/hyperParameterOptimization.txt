@@ -1,0 +1,166 @@
+Model original accuracy: 0.45467032967032966
+Model original F1_Macro: 0.3420
+
+
+Best F1 (Macro): 0.4075
+Best Params:
+  n_estimators: 1259
+  max_depth: 15
+  learning_rate: 0.17131469074070044
+  gamma: 0.1937890440542001
+  min_child_weight: 10
+  subsample: 0.9502180901041822
+  colsample_bytree: 0.690525664851311
+  reg_alpha: 0.8755463189571604
+  reg_lambda: 3.4110832376926488
+
+
+
+There is no cross validation data as I can not do it when I am using early stopping without seriously altering the code. 
+
+This were the params for this results. As I ended up understanding this is suboptimal, as I am wasting iterations trying to optimize
+n_estimators when I am using early stopping anyways. This can be checked easily, if I take out early stopping, there is a significant
+change in the results. I would rerun the optimization with the new params but it takes way too long without training it with a gpu,
+and cupy is totally unable to find nvcc even though it is installed and the path is ok. Maybe check with proffesor?
+
+
+nvcc --version                                                            
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2025 NVIDIA Corporation
+Built on Fri_Feb_21_20:42:46_Pacific_Standard_Time_2025
+Cuda compilation tools, release 12.8, V12.8.93
+Build cuda_12.8.r12.8/compiler.35583870_0
+
+
+params = {
+    'n_estimators': trial.suggest_int('n_estimators', 300, 4000),
+    'max_depth': trial.suggest_int('max_depth', 3, 20),
+    'learning_rate': trial.suggest_float('learning_rate', 1e-4, 0.5, log=True),
+    'gamma': trial.suggest_float('gamma', 0, 10),
+    'min_child_weight': trial.suggest_int('min_child_weight', 1, 20),
+    'subsample': trial.suggest_float('subsample', 0.5, 1.0),
+    'colsample_bytree': trial.suggest_float('colsample_bytree', 0.5, 1.0),
+    'reg_alpha': trial.suggest_float('reg_alpha', 0, 20),
+    'reg_lambda': trial.suggest_float('reg_lambda', 0, 20),
+    'tree_method': 'hist',
+    'device': 'cpu',
+    'random_state': 42,
+    'eval_metric': 'mlogloss',
+    'early_stopping_rounds': 50
+}
+
+New model accuracy: 0.4478021978021978
+New model F1_Macro: 0.4075
+Classification Report:
+              precision    recall  f1-score   support
+
+       110.0       0.47      0.57      0.52        14
+       120.0       0.37      0.63      0.46        30
+       130.0       0.44      0.48      0.46       137
+       140.0       0.40      0.33      0.36       138
+       150.0       0.56      0.55      0.56       226
+       160.0       0.33      0.24      0.28        97
+       170.0       0.39      0.55      0.46        66
+       180.0       0.33      0.27      0.30        15
+       190.0       0.50      0.20      0.29         5
+
+    accuracy                           0.45       728
+   macro avg       0.42      0.42      0.41       728
+weighted avg       0.45      0.45      0.44       728
+
+Feature Importance:
+                           Feature  Importance
+79                    minPotential    0.096465
+78                    maxPotential    0.086023
+3                               AP    0.042995
+2                              Age    0.027290
+14                     Min Fee Rls    0.024314
+0                               CA    0.022100
+12    Min Fee Rls to Foreign Clubs    0.018835
+36                             Nat    0.016053
+37                             Mar    0.014999
+18                          Av Rat    0.013915
+77                         AT Apps    0.013830
+67                            Caps    0.013482
+8                               CR    0.012631
+10                              HR    0.012578
+35                             OtB    0.012381
+75                            Temp    0.012078
+46                             Fla    0.011948
+28                             Ref    0.011876
+53                             Cro    0.011692
+31                             Pen    0.011669
+23                             Tea    0.011643
+69                           Imp M    0.011572
+20                             Vis    0.011301
+66                        Yth Apps    0.011296
+38                            L Th    0.011250
+9                               WR    0.011198
+24                             Tck    0.011121
+61                             Ant    0.010947
+7                          Consist    0.010754
+25                             Str    0.010315
+30                             Pos    0.010222
+68                            Dirt    0.010127
+64                             Aer    0.010059
+54                             Cor    0.009957
+1                             Wage    0.009897
+63                             Agg    0.009829
+72                            Pres    0.009666
+56                             Cmp    0.009605
+62                             Agi    0.009551
+45                             Fre    0.009545
+40                             Ldr    0.009520
+74                            Spor    0.009484
+32                             Pas    0.009431
+70                          Inj Pr    0.009380
+16                          Max WD    0.009319
+15                 Opt Ext by Club    0.009269
+5                              Amb    0.009194
+49                             Ecc    0.009094
+4                              Ada    0.008971
+73                            Prof    0.008922
+51                             Det    0.008792
+76                            Vers    0.008653
+59                             Bra    0.008596
+48                             Fin    0.008589
+26                             Sta    0.008553
+21                             Thr    0.008385
+52                             Dec    0.008151
+29                             Pun    0.008150
+43                             Hea    0.008074
+44                             Han    0.007973
+55                             Cnt    0.007858
+71                             Loy    0.007799
+47                             Fir    0.007794
+57                             Com    0.007704
+17                          Min WD    0.007689
+60                             Bal    0.007626
+50                             Dri    0.007558
+42                             Jum    0.007434
+6                             Cont    0.007164
+22                             Tec    0.007149
+33                             Pac    0.006805
+27                             TRO    0.006407
+19                             Wor    0.006392
+41                             Kic    0.006390
+65                             Acc    0.006263
+39                             Lon    0.006250
+58                             Cmd    0.006246
+34                             1v1    0.005965
+13  Min Fee Rls Clubs In Cont Comp    0.000000
+11                   Wage Contrib.    0.000000
+
+ROC AUC Scores:
+110-120: 0.9568
+120-130: 0.9165
+130-140: 0.7716
+140-150: 0.7537
+150-160: 0.7737
+160-170: 0.7689
+170-180: 0.9031
+180-190: 0.9371
+190-200: 0.8907
+
+Micro-average ROC AUC: 0.8791
+Macro-average ROC AUC: 0.8531

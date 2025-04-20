@@ -1,0 +1,80 @@
+After executing this code on the evaluation of features of the basic model, this came out. they will be the only features included in this model
+
+top_25_features = feature_importance_df.head(25)['Feature'].tolist()
+
+print("\nTop 25 Most Important Features:")
+print(top_25_features)
+
+Top 25 Most Important Features:
+['minPotential', 'maxPotential', 'AP', 'Min Fee Rls Clubs In Cont Comp', 'CA', 'Age', 'Wage Contrib.', 'Opt Ext by Club', 'Prof', 'AT Apps', 'Min Fee Rls', 'Yth Apps', 'Pun', 'Wage', 'HR', 'WR', 'Det', 'Consist', 'CR', 'Amb', 'Pen', 'Agi', 'Min Fee Rls to Foreign Clubs', 'Str', 'Cor']
+
+
+In the statistics we can see a small improvement, but it is within error margin
+
+Model original accuracy: 0.4491758241758242
+Model original F1_Macro: 0.3365
+Classification Report:
+              precision    recall  f1-score   support
+
+       110.0       0.62      0.36      0.45        14
+       120.0       0.45      0.33      0.38        30
+       130.0       0.41      0.47      0.44       137
+       140.0       0.37      0.33      0.35       138
+       150.0       0.51      0.66      0.58       226
+       160.0       0.39      0.18      0.24        97
+       170.0       0.47      0.52      0.49        66
+       180.0       0.14      0.07      0.09        15
+       190.0       0.00      0.00      0.00         5
+
+    accuracy                           0.45       728
+   macro avg       0.37      0.32      0.34       728
+weighted avg       0.43      0.45      0.43       728
+
+Feature Importance:
+                           Feature  Importance
+0                     minPotential    0.196219
+1                     maxPotential    0.142522
+2                               AP    0.058416
+5                              Age    0.039226
+4                               CA    0.036266
+10                     Min Fee Rls    0.031776
+8                             Prof    0.029835
+13                            Wage    0.029137
+19                             Amb    0.028615
+9                          AT Apps    0.027812
+14                              HR    0.027592
+18                              CR    0.027541
+15                              WR    0.026895
+23                             Str    0.026875
+17                         Consist    0.026351
+22    Min Fee Rls to Foreign Clubs    0.026258
+16                             Det    0.026079
+7                  Opt Ext by Club    0.025835
+6                    Wage Contrib.    0.025766
+21                             Agi    0.024385
+11                        Yth Apps    0.024294
+12                             Pun    0.023639
+24                             Cor    0.023308
+3   Min Fee Rls Clubs In Cont Comp    0.023002
+20                             Pen    0.022353
+
+Cross validating scores
+accuracy: 0.44 (± 0.02)
+f1_micro: 0.44 (± 0.02)
+f1_macro: 0.33 (± 0.03)
+precision_macro: 0.38 (± 0.03)
+recall_macro: 0.32 (± 0.03)
+
+ROC AUC Scores:
+110-120: 0.9361
+120-130: 0.8866
+130-140: 0.7908
+140-150: 0.7478
+150-160: 0.7586
+160-170: 0.7606
+170-180: 0.9169
+180-190: 0.9269
+190-200: 0.8664
+
+Micro-average ROC AUC: 0.8825
+Macro-average ROC AUC: 0.8440

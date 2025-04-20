@@ -1,0 +1,102 @@
+As all techniques but parameter optimization have not run great results, I will run the final version with the new parameter optimization, then add 
+the rest and compare how do they behave after another parameter optimization
+
+
+
+Only with hyperparameter
+
+=== Best Trial ===
+Best F1 (Macro): 0.4096
+Best Params:
+  max_depth: 17
+  learning_rate: 0.027549770509215588
+  gamma: 0.7272621853811047
+  min_child_weight: 14
+  subsample: 0.9739578448716864
+  colsample_bytree: 0.8431140769235174
+  reg_alpha: 0.6327837343185934
+  reg_lambda: 1.5422800679934323
+
+
+Model original accuracy: 0.4381868131868132
+Model original F1_Macro: 0.4096
+Classification Report:
+              precision    recall  f1-score   support
+
+       110.0       0.44      0.57      0.50        14
+       120.0       0.33      0.53      0.41        30
+       130.0       0.42      0.47      0.44       137
+       140.0       0.41      0.34      0.37       138
+       150.0       0.57      0.50      0.54       226
+       160.0       0.34      0.27      0.30        97
+       170.0       0.39      0.55      0.46        66
+       180.0       0.30      0.40      0.34        15
+       190.0       1.00      0.20      0.33         5
+
+    accuracy                           0.44       728
+   macro avg       0.47      0.43      0.41       728
+weighted avg       0.45      0.44      0.44       728
+
+ROC AUC Scores:
+110-120: 0.9616
+120-130: 0.9107
+130-140: 0.7783
+140-150: 0.7402
+150-160: 0.7698
+160-170: 0.7658
+170-180: 0.9037
+180-190: 0.9410
+190-200: 0.9082
+
+Micro-average ROC AUC: 0.8762
+Macro-average ROC AUC: 0.8539
+
+
+
+
+
+
+When we add all the other modifications, the previosly hyperparameter optimized configuration drops F1_Macro
+
+Model original accuracy: 0.41346153846153844
+Model original F1_Macro: 0.3825
+
+
+
+
+
+After a new optimization these are the results
+
+Model original accuracy: 0.3983516483516483
+Model original F1_Macro: 0.3988
+Classification Report:
+              precision    recall  f1-score   support
+
+       110.0       0.32      0.64      0.43        14
+       120.0       0.24      0.50      0.32        30
+       130.0       0.44      0.46      0.45       137
+       140.0       0.34      0.30      0.32       138
+       150.0       0.52      0.38      0.44       226
+       160.0       0.33      0.33      0.33        97
+       170.0       0.41      0.53      0.46        66
+       180.0       0.29      0.40      0.33        15
+       190.0       0.67      0.40      0.50         5
+
+    accuracy                           0.40       728
+   macro avg       0.40      0.44      0.40       728
+weighted avg       0.42      0.40      0.40       728
+
+
+ROC AUC Scores:
+110-120: 0.9265
+120-130: 0.8991
+130-140: 0.7728
+140-150: 0.7278
+150-160: 0.7668
+160-170: 0.7903
+170-180: 0.9072
+180-190: 0.9128
+190-200: 0.9488
+
+Micro-average ROC AUC: 0.8691
+Macro-average ROC AUC: 0.8509

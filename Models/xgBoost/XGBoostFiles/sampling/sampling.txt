@@ -1,0 +1,126 @@
+With sampling techniques all statistics seem to be lower except for cross validating f1 macro. In the final model I will try with and without
+
+Model original accuracy: 0.40934065934065933
+Model original F1_Macro: 0.3230
+Classification Report:
+              precision    recall  f1-score   support
+
+       110.0       0.56      0.36      0.43        14
+       120.0       0.32      0.27      0.29        30
+       130.0       0.37      0.48      0.42       137
+       140.0       0.35      0.38      0.36       138
+       150.0       0.52      0.49      0.51       226
+       160.0       0.31      0.23      0.26        97
+       170.0       0.43      0.48      0.46        66
+       180.0       0.25      0.13      0.17        15
+       190.0       0.00      0.00      0.00         5
+
+    accuracy                           0.41       728
+   macro avg       0.35      0.31      0.32       728
+weighted avg       0.41      0.41      0.41       728
+
+Feature Importance:
+                           Feature  Importance
+79                    minPotential    0.114916
+78                    maxPotential    0.055918
+11                   Wage Contrib.    0.037479
+3                               AP    0.030205
+2                              Age    0.018351
+0                               CA    0.018199
+14                     Min Fee Rls    0.014863
+25                             Str    0.013937
+73                            Prof    0.013912
+7                          Consist    0.012741
+67                            Caps    0.012688
+1                             Wage    0.012526
+9                               WR    0.012525
+8                               CR    0.012216
+66                        Yth Apps    0.012043
+51                             Det    0.011896
+30                             Pos    0.011609
+28                             Ref    0.011551
+38                            L Th    0.011431
+22                             Tec    0.011353
+15                 Opt Ext by Club    0.011298
+5                              Amb    0.011262
+10                              HR    0.010991
+57                             Com    0.010982
+12    Min Fee Rls to Foreign Clubs    0.010887
+42                             Jum    0.010757
+36                             Nat    0.010729
+59                             Bra    0.010642
+48                             Fin    0.010586
+60                             Bal    0.010505
+74                            Spor    0.010413
+44                             Han    0.010301
+75                            Temp    0.010225
+52                             Dec    0.010206
+32                             Pas    0.010060
+62                             Agi    0.010053
+77                         AT Apps    0.010047
+16                          Max WD    0.010003
+20                             Vis    0.009981
+24                             Tck    0.009948
+47                             Fir    0.009903
+26                             Sta    0.009878
+54                             Cor    0.009856
+29                             Pun    0.009843
+43                             Hea    0.009638
+18                          Av Rat    0.009612
+40                             Ldr    0.009608
+72                            Pres    0.009573
+46                             Fla    0.009430
+4                              Ada    0.009410
+27                             TRO    0.009295
+35                             OtB    0.009192
+55                             Cnt    0.009138
+61                             Ant    0.009100
+69                           Imp M    0.009039
+33                             Pac    0.009028
+41                             Kic    0.008936
+45                             Fre    0.008900
+49                             Ecc    0.008823
+39                             Lon    0.008814
+6                             Cont    0.008779
+31                             Pen    0.008723
+76                            Vers    0.008706
+50                             Dri    0.008662
+56                             Cmp    0.008650
+65                             Acc    0.008495
+23                             Tea    0.008482
+68                            Dirt    0.008422
+34                             1v1    0.008336
+21                             Thr    0.008196
+19                             Wor    0.008186
+53                             Cro    0.008149
+17                          Min WD    0.008136
+37                             Mar    0.007883
+71                             Loy    0.007829
+63                             Agg    0.007394
+70                          Inj Pr    0.007332
+64                             Aer    0.006422
+58                             Cmd    0.005964
+13  Min Fee Rls Clubs In Cont Comp    0.000000
+
+
+Cross validating scores
+accuracy: 0.43 (± 0.03)
+f1_micro: 0.43 (± 0.03)
+f1_macro: 0.42 (± 0.04)
+precision_macro: 0.46 (± 0.04)
+recall_macro: 0.40 (± 0.05)
+
+
+ROC AUC Scores:
+110-120: 0.9456
+120-130: 0.8950
+130-140: 0.7662
+140-150: 0.7261
+150-160: 0.7524
+160-170: 0.7391
+170-180: 0.9090
+180-190: 0.9417
+190-200: 0.8437
+
+Micro-average ROC AUC: 0.8711
+Macro-average ROC AUC: 0.8360
